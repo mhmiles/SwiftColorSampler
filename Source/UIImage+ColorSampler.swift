@@ -29,7 +29,7 @@ enum ColorSamplingError: ErrorType {
     case InvalidSamplingArea
 }
 
-extension UIImage {
+public extension UIImage {
     /**
      Samples colors from an image to find up to `count` prominent colors from the image
      
