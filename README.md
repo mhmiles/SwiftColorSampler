@@ -10,7 +10,7 @@ SwiftColorSampler is a UIImage extension for sampling prominent colors from an i
 SwiftColorSampler is available to install with [Carthage](https://github.com/Carthage/Carthage). To integrate SwiftColorSampler into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "mhmiles/SwiftColorSampler" ~> 1.0
+github "mhmiles/SwiftColorSampler" ~> 0.1.0
 ```
 
 ### Manually
