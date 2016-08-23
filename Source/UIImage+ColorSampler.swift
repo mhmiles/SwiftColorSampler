@@ -24,9 +24,10 @@
 
 import UIKit
 
-enum ColorSamplingError: ErrorType {
+enum ColorSamplingError: Error {
     case InvalidSampleCount
     case InvalidSamplingArea
+    case NoCGImage
 }
 
 public extension UIImage {
@@ -66,12 +67,16 @@ public extension UIImage {
      - returns: An optional array of UIColors with a maximum length of `count`.  Fewer colors will be returned if there are less than `count` colors in the sampled image area.
      */
     public func sampleColors(count: Int, rect: CGRect, colorDepth: Int = 4) throws -> [UIColor]? {
-        let bounds = CGRectMake(0, 0, size.width, size.height)
-        if (CGRectContainsRect(bounds, rect)) {
-            let croppedCgImage = CGImageCreateWithImageInRect(CGImage, rect)
-            let croppedImage = UIImage(CGImage: croppedCgImage!)
+        guard let cgImage = cgImage else {
+            throw ColorSamplingError.NoCGImage
+        }
+        
+        let bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        if bounds.contains(rect) {
+            let croppedCgImage = cgImage.cropping(to: rect)
+            let croppedImage = UIImage(cgImage: croppedCgImage!)
             
-            return try croppedImage.sampleColors(count, colorDepth: colorDepth)
+            return try croppedImage.sampleColors(count: count, colorDepth: colorDepth)
         }
         
         return nil
@@ -83,18 +88,22 @@ public extension UIImage {
      - returns: An array of UInt32 containing RGBA pixel data
      */
     private func pixelColorData() -> [UInt32] {
-        let cgImage = self.CGImage
+        guard let cgImage = cgImage else {
+            print("No CGImage")
+            return [UInt32]()
+        }
+        
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
         let bitsPerPixel = 32, bitsPerComponent = 8, bytesPerPixel = bitsPerPixel/8
-        let width = CGImageGetWidth(cgImage), height = CGImageGetHeight(cgImage)
+        let width = cgImage.width, height = cgImage.height
         let bytesPerRow = width * bytesPerPixel
         let bufferLength = width * height
         
-        let bitmapData = UnsafeMutablePointer<UInt32>.alloc(bufferLength)
-        let context = CGBitmapContextCreate(bitmapData, width, height, bitsPerComponent, bytesPerRow, colorSpace, 1)
+        let bitmapData = UnsafeMutablePointer<UInt32>.allocate(capacity: bufferLength)
+        let context = CGContext(data: bitmapData, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: 1)
         
-        CGContextDrawImage(context, CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)), cgImage)
+        context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(width), height: CGFloat(height)), byTiling: false)
         
         return Array(UnsafeBufferPointer(start: bitmapData, count: bufferLength))
     }

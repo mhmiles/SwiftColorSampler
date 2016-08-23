@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sample_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestImage2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zVb-zS-Xny">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zVb-zS-Xny" secondAttribute="height" multiplier="48:31" id="Bf0-Nv-CYd"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BYq-lF-pTb">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3I-FB-dWT">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="MAN-lF-Trh"/>
+                                            <constraint firstAttribute="height" constant="50" id="ZJa-Ql-RgH"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5q-jr-a1b">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="I5L-DF-BlB"/>
+                                            <constraint firstAttribute="height" constant="50" id="Tt6-HC-Evy"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfy-bY-tZs">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Xdj-sh-6NI"/>
+                                            <constraint firstAttribute="width" constant="50" id="gRO-Z1-N1H"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zVb-zS-Xny" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1X4-o1-XG8"/>
+                            <constraint firstItem="BYq-lF-pTb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GRx-oA-Dwk"/>
+                            <constraint firstItem="zVb-zS-Xny" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="99" id="rMA-mL-f2g"/>
+                            <constraint firstItem="BYq-lF-pTb" firstAttribute="top" secondItem="zVb-zS-Xny" secondAttribute="bottom" constant="28" id="syw-GD-ks1"/>
+                            <constraint firstItem="zVb-zS-Xny" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="vdH-en-T2B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="view1" destination="X3I-FB-dWT" id="fIk-Ez-lzx"/>
+                        <outlet property="view2" destination="v5q-jr-a1b" id="Sba-Te-SCN"/>
+                        <outlet property="view3" destination="Kfy-bY-tZs" id="LZu-Pc-g00"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TestImage2.jpg" width="640" height="428"/>
+    </resources>
+</document>

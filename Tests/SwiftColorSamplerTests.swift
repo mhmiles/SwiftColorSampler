@@ -27,14 +27,14 @@ import XCTest
 
 class SwiftColorSamplerTests: XCTestCase {
     lazy var testImage1: UIImage = {
-        let bundle = NSBundle(forClass: (SwiftColorSamplerTests.self))
-        let imagePath = bundle.pathForResource("TestImage1", ofType: "png")!
+        let bundle = Bundle(for: (SwiftColorSamplerTests.self))
+        let imagePath = bundle.path(forResource: "TestImage1", ofType: "png")!
         return UIImage(contentsOfFile: imagePath)!
     }()
     
     lazy var testImage2: UIImage = {
-        let bundle = NSBundle(forClass: (SwiftColorSamplerTests.self))
-        let imagePath = bundle.pathForResource("TestImage2", ofType: "jpg")!
+        let bundle = Bundle(for: (SwiftColorSamplerTests.self))
+        let imagePath = bundle.path(forResource: "TestImage2", ofType: "jpg")!
         return UIImage(contentsOfFile: imagePath)!
     }()
     
@@ -69,7 +69,7 @@ class SwiftColorSamplerTests: XCTestCase {
      Test that sampling colors does not return nil.
      */
     func testValidReturn() {
-        if let _ = try! testImage1.sampleColors(8) {
+        if let _ = try! testImage1.sampleColors(count: 8) {
             XCTAssert(true)
         } else {
             XCTFail("Sample colors returned nil")
@@ -80,9 +80,9 @@ class SwiftColorSamplerTests: XCTestCase {
      Test sampling against known result of testImage1.
      */
     func testQuantization() {
-        let colors = try! testImage1.sampleColors(8)!
+        let colors = try! testImage1.sampleColors(count: 8)!
         
-        for (index, color) in colors.enumerate() {
+        for (index, color) in colors.enumerated() {
             XCTAssertEqual(color, testImage1Colors[index])
         }
     }
@@ -91,7 +91,7 @@ class SwiftColorSamplerTests: XCTestCase {
      Test that sampling returns at maximum the number of colors in an image.
      */
     func testSampleCount() {
-        let colors = try! testImage1.sampleColors(100)!
+        let colors = try! testImage1.sampleColors(count: 100)!
         XCTAssert(colors.count == 8, "Too many colors returned: \(colors.count)")
     }
     
@@ -100,7 +100,7 @@ class SwiftColorSamplerTests: XCTestCase {
      */
     func testThrowing() {
         do {
-            try testImage1.sampleColors(0)
+            try testImage1.sampleColors(count: 0)
         } catch {
             XCTAssert(true)
             return
@@ -113,10 +113,10 @@ class SwiftColorSamplerTests: XCTestCase {
      Test sampling colors from a subregion of an image.
      */
     func testRectSampling() {
-        let firstColor = try! testImage1.sampleColors(5, rect: CGRect(x: 0.0, y: 0.0, width: 5.0, height: 5.0))?.first!
+        let firstColor = try! testImage1.sampleColors(count: 5, rect: CGRect(x: 0.0, y: 0.0, width: 5.0, height: 5.0))?.first!
         XCTAssertEqual(firstColor, testImage1Colors.first!)
         
-        let lastColor = try! testImage1.sampleColors(5, rect: CGRect(x: 95.0, y: 0.0, width: 5.0, height: 5.0))?.first!
+        let lastColor = try! testImage1.sampleColors(count: 5, rect: CGRect(x: 95.0, y: 0.0, width: 5.0, height: 5.0))?.first!
         XCTAssertEqual(lastColor, testImage1Colors.last!)
     }
     
@@ -124,7 +124,7 @@ class SwiftColorSamplerTests: XCTestCase {
      Test sampling from a real sample image
      */
     func testRealImage() {
-        let colors = try! testImage2.sampleColors(5)!
+        let colors = try! testImage2.sampleColors(count: 5)!
 
         let compareColors: (UIColor, UIColor) -> Bool = {
             var red1 = CGFloat(), blue1 = CGFloat(), green1 = CGFloat(), red2 = CGFloat(), blue2 = CGFloat(), green2 = CGFloat()
@@ -134,20 +134,20 @@ class SwiftColorSamplerTests: XCTestCase {
             return abs(red1-red2)<0.0001 && abs(green1-green2)<0.0001 && abs(blue1-blue2)<0.0001
         }
         
-        for (index, color) in colors.enumerate() {
+        for (index, color) in colors.enumerated() {
             XCTAssertTrue(compareColors(color, testImage2Colors[index]), "Colors not equal: \(color) vs \(testImage2Colors[index])")
         }
     }
     
     func testDefaultPerformance() {
-        self.measureBlock {
-            try! self.testImage2.sampleColors(5)
+        measure {
+            try! self.testImage2.sampleColors(count: 5)
         }
     }
     
     func test6BitPerformance() {
-        self.measureBlock {
-            try! self.testImage2.sampleColors(5, colorDepth: 6)
+        measure {
+            try! self.testImage2.sampleColors(count: 5, colorDepth: 6)
         }
     }
     
