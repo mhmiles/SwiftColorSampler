@@ -30,22 +30,36 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3I-FB-dWT">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="MAN-lF-Trh"/>
-                                            <constraint firstAttribute="height" constant="50" id="ZJa-Ql-RgH"/>
+                                            <constraint firstAttribute="width" constant="30" id="MAN-lF-Trh"/>
+                                            <constraint firstAttribute="height" constant="30" id="ZJa-Ql-RgH"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5q-jr-a1b">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="I5L-DF-BlB"/>
-                                            <constraint firstAttribute="height" constant="50" id="Tt6-HC-Evy"/>
+                                            <constraint firstAttribute="width" constant="30" id="I5L-DF-BlB"/>
+                                            <constraint firstAttribute="height" constant="30" id="Tt6-HC-Evy"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kfy-bY-tZs">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Xdj-sh-6NI"/>
-                                            <constraint firstAttribute="width" constant="50" id="gRO-Z1-N1H"/>
+                                            <constraint firstAttribute="height" constant="30" id="Xdj-sh-6NI"/>
+                                            <constraint firstAttribute="width" constant="30" id="gRO-Z1-N1H"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AkS-N4-WHk">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9KN-Od-0tD"/>
+                                            <constraint firstAttribute="width" constant="30" id="I4y-o4-O1e"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpk-KV-4UI">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="7f3-Vu-FH1"/>
+                                            <constraint firstAttribute="height" constant="30" id="cBv-r9-fkD"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -61,9 +75,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="stackView" destination="BYq-lF-pTb" id="L9c-YC-2aj"/>
                         <outlet property="view1" destination="X3I-FB-dWT" id="fIk-Ez-lzx"/>
                         <outlet property="view2" destination="v5q-jr-a1b" id="Sba-Te-SCN"/>
                         <outlet property="view3" destination="Kfy-bY-tZs" id="LZu-Pc-g00"/>
+                        <outlet property="view4" destination="AkS-N4-WHk" id="UNG-ZC-haU"/>
+                        <outlet property="view5" destination="Wpk-KV-4UI" id="4Yt-6i-DCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

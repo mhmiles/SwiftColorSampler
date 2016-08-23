@@ -14,15 +14,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view4: UIView!
+    @IBOutlet weak var view5: UIView!
+    
+    @IBOutlet weak var stackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let colors = try! UIImage(named: "TestImage2.jpg")?.sampleColors(count: 5, colorDepth: 4)
-        
-        view1.backgroundColor = colors?[0]
-        view2.backgroundColor = colors?[1]
-        view3.backgroundColor = colors?[2]
+
+        for (index, view) in stackView.subviews.enumerated() {
+            view.backgroundColor = colors?[index]
+            view.layer.borderWidth = 1.0
+        }
     }
 }
 
