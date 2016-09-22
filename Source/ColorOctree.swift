@@ -27,11 +27,11 @@ import Foundation
 // MARK: RGB Octree
 
 internal class ColorOctree {
-    private let root = OctreeNode(index: 0, parent: nil)
-    private var heap = MinBinaryHeap<OctreeNode>()
-    private let colorDepth: Int
+    fileprivate let root = OctreeNode(index: 0, parent: nil)
+    fileprivate var heap = MinBinaryHeap<OctreeNode>()
+    fileprivate let colorDepth: Int
     
-    private var colors: [UIColor]? {
+    fileprivate var colors: [UIColor]? {
         var mutableColors = [(UIColor, Int)]()
         
         for heapNode in heap.nodes {
@@ -40,7 +40,7 @@ internal class ColorOctree {
             mutableColors.append((octreeNode.color, octreeNode.weight))
         }
         
-        mutableColors.sortInPlace() { $0.1 > $1.1 }
+        mutableColors.sort() { $0.1 > $1.1 }
         
         return mutableColors.map() { $0.0 }
     }
@@ -54,7 +54,7 @@ internal class ColorOctree {
      
      - parameter color: The RGBA pixel data to insert
      */
-    func insertColor(color: UInt32) {
+    func insertColor(_ color: UInt32) {
         var currentNode = root
         
         var bitPosition = UInt32(8)
@@ -102,7 +102,7 @@ internal class ColorOctree {
      
      - returns: An optional array of `UIColor`s with a maximum length of `count`.  Will return fewer colors if fewer leaf nodes are present.
      */
-    func quantizeToColorCount(count: Int) -> [UIColor]? {
+    func quantizeToColorCount(_ count: Int) -> [UIColor]? {
         while(heap.count > count) {
             foldMinColor()
         }
@@ -113,7 +113,7 @@ internal class ColorOctree {
     /**
      Folds the leaf node with the smallest weight into the octree until a non-leaf parent is encountered.  If that parent was occupied, it will be inserted into the heap.
      */
-    private func foldMinColor() {
+    fileprivate func foldMinColor() {
         if let minOctreeNode = heap.extract() {
             var currentOctreeNode = minOctreeNode
             
@@ -156,7 +156,7 @@ private class OctreeNode: Heapable {
     let parent: OctreeNode?
     let childIndex: Int
     
-    var children = [OctreeNode?](count: 8, repeatedValue: nil)
+    var children = [OctreeNode?](repeating: nil, count: 8)
     var childCount: Int {
         return children.filter({$0 != nil}).count
     }
@@ -174,7 +174,7 @@ private class OctreeNode: Heapable {
      
      - parameter color: The UInt32 of RGBA color data
      */
-    func addColor(color: UInt32) {
+    func addColor(_ color: UInt32) {
         let redMask = UInt32(UINT8_MAX), greenMask = redMask << 8, blueMask = greenMask << 8, alphaMask = blueMask << 8
         
         red += Int(color & redMask)
@@ -191,7 +191,7 @@ private class OctreeNode: Heapable {
      
      - returns: A new `OctreeNode` that is the child of the existing node at `childIndex`
      */
-    func createChild(childIndex: Int) -> OctreeNode {
+    func createChild(_ childIndex: Int) -> OctreeNode {
         let child = OctreeNode(index: childIndex, parent: self)
         children[childIndex] = child
         

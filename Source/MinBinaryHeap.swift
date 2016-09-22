@@ -43,12 +43,12 @@ internal class MinBinaryHeap<T: Heapable> {
      */
     func extract() -> T? {
         if let root = nodes.first {
-            nodes.removeAtIndex(0)
+            nodes.remove(at: 0)
             root.reference.heapIndex = nil
             
             if let newRoot = nodes.last {
                 nodes.removeLast()
-                nodes.insert(newRoot, atIndex: 0)
+                nodes.insert(newRoot, at: 0)
                 newRoot.index = 0
                 downHeap(newRoot)
             }
@@ -64,7 +64,7 @@ internal class MinBinaryHeap<T: Heapable> {
      
      - parameter object: The element to be inserted into the heap
      */
-    func insert(object: T) {
+    func insert(_ object: T) {
         if let index = object.heapIndex {
             let node = nodes[index]
             let valueIncreased = object.value > node.value
@@ -90,8 +90,8 @@ internal class MinBinaryHeap<T: Heapable> {
      
      - parameter node: The node to move upwards
      */
-    private func upHeap(node: HeapNode<T>) {
-        if let parent = getParent(node) where node.value < parent.value {
+    fileprivate func upHeap(_ node: HeapNode<T>) {
+        if let parent = getParent(node) , node.value < parent.value {
             swapNodes(node, node2: parent)
             upHeap(node)
         }
@@ -102,16 +102,16 @@ internal class MinBinaryHeap<T: Heapable> {
      
      - parameter node: The node to mode downwards
      */
-    private func downHeap(node: HeapNode<T>) {
-        if let leftChild = getLeftChild(node) where leftChild.value < node.value {
-            if let rightChild = getRightChild(node) where rightChild.value < leftChild.value {
+    fileprivate func downHeap(_ node: HeapNode<T>) {
+        if let leftChild = getLeftChild(node) , leftChild.value < node.value {
+            if let rightChild = getRightChild(node) , rightChild.value < leftChild.value {
                 swapNodes(node, node2: rightChild)
             } else {
                 swapNodes(node, node2: leftChild)
             }
             
             downHeap(node)
-        } else if let rightChild = getRightChild(node) where rightChild.value < node.value {
+        } else if let rightChild = getRightChild(node) , rightChild.value < node.value {
             swapNodes(node, node2: rightChild)
             downHeap(node)
         }
@@ -123,12 +123,12 @@ internal class MinBinaryHeap<T: Heapable> {
      - parameter node1: The first node to swap
      - parameter node2: The second node to swap
      */
-    private func swapNodes(node1: HeapNode<T>, node2: HeapNode<T>) {
-        nodes.removeAtIndex(node1.index)
-        nodes.insert(node2, atIndex: node1.index)
+    fileprivate func swapNodes(_ node1: HeapNode<T>, node2: HeapNode<T>) {
+        nodes.remove(at: node1.index)
+        nodes.insert(node2, at: node1.index)
         
-        nodes.removeAtIndex(node2.index)
-        nodes.insert(node1, atIndex: node2.index)
+        nodes.remove(at: node2.index)
+        nodes.insert(node1, at: node2.index)
         
         let index1 = node1.index, index2 = node2.index
         node1.index = index2
@@ -142,7 +142,7 @@ internal class MinBinaryHeap<T: Heapable> {
      
      - returns: An optional `HeapNode` that is the left child of `node`.
      */
-    private func getLeftChild(node: HeapNode<T>) -> HeapNode<T>? {
+    fileprivate func getLeftChild(_ node: HeapNode<T>) -> HeapNode<T>? {
         let leftChildIndex = node.index*2+1
         
         if leftChildIndex < nodes.count {
@@ -159,7 +159,7 @@ internal class MinBinaryHeap<T: Heapable> {
      
      - returns: An optional `HeapNode` that is the right child of `node`.
      */
-    private func getRightChild(node: HeapNode<T>) -> HeapNode<T>? {
+    fileprivate func getRightChild(_ node: HeapNode<T>) -> HeapNode<T>? {
         let rightChildIndex = node.index*2+2
         
         if rightChildIndex < nodes.count {
@@ -169,7 +169,7 @@ internal class MinBinaryHeap<T: Heapable> {
         return nil
     }
     
-    private func getParent(node: HeapNode<T>) -> HeapNode<T>? {
+    fileprivate func getParent(_ node: HeapNode<T>) -> HeapNode<T>? {
         let nodeIndex = node.index
         if (nodeIndex == 0) {
             return nil
@@ -199,7 +199,7 @@ internal class HeapNode<T: Heapable> {
     /**
      Set the index of the referenced `Heapable` object to the current index of the node.
      */
-    private func updateReferenceHeapIndex() {
+    fileprivate func updateReferenceHeapIndex() {
         reference.heapIndex = index
     }
 }

@@ -79,18 +79,19 @@ class MinBinaryHeapTests: XCTestCase {
         var heapables = [MockHeapable]()
         
         for _ in 1...10 {
-            let heapable = MockHeapable(value: random())
+            let heapable = MockHeapable(value: Int(arc4random()))
             
             heapables.append(heapable)
             heap.insert(heapable)
         }
         
         var heapSorted = [Int]()
+
         while heap.count > 0 {
             heapSorted.append(heap.extract()!.value)
         }
         
-        let systemSorted = heapables.map({$0.value}).sort {$0 < $1}
+        let systemSorted = heapables.map({$0.value}).sorted {$0 < $1}
         
         XCTAssertEqual(systemSorted, heapSorted)
     }
