@@ -8,12 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for SwiftColorSampler.
 FOUNDATION_EXPORT double SwiftColorSamplerVersionNumber;
-
-//! Project version string for SwiftColorSampler.
 FOUNDATION_EXPORT const unsigned char SwiftColorSamplerVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <SwiftColorSampler/PublicHeader.h>
 
 

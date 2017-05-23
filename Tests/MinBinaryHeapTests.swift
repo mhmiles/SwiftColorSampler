@@ -26,83 +26,83 @@ import XCTest
 @testable import SwiftColorSampler
 
 class MinBinaryHeapTests: XCTestCase {
-    var heap: MinBinaryHeap<MockHeapable>!
+  var heap: MinBinaryHeap<MockHeapable>!
+  
+  override func setUp() {
+    super.setUp()
     
-    override func setUp() {
-        super.setUp()
-        
-        heap = MinBinaryHeap<MockHeapable>()
+    heap = MinBinaryHeap<MockHeapable>()
+  }
+  
+  override func tearDown() {
+    super.tearDown()
+  }
+  
+  /**
+   Test insert and extract
+   */
+  func testInsertAndExtract() {
+    let heapable = MockHeapable(value: 1)
+    heap.insert(heapable)
+    
+    XCTAssertEqual(heap.count, 1)
+    
+    heap.insert(MockHeapable(value: 100))
+    XCTAssertEqual(heap.count, 2)
+    
+    let extractedHeapable = heap.extract()!
+    XCTAssertTrue(extractedHeapable.value == heapable.value)
+    
+    XCTAssertEqual(heap.count, 1)
+  }
+  
+  /**
+   Test setting of heapIndex
+   */
+  func testHeapIndex() {
+    let heapable1 = MockHeapable(value: 10)
+    heap.insert(heapable1)
+    
+    XCTAssertEqual(heapable1.heapIndex!, 0)
+    
+    let heapable2 = MockHeapable(value: 0)
+    heap.insert(heapable2)
+    
+    XCTAssertEqual(heapable1.heapIndex!, 1)
+    XCTAssertEqual(heapable2.heapIndex!, 0)
+  }
+  
+  /**
+   Test heap functionality with heapsort
+   */
+  func testHeapSort() {
+    var heapables = [MockHeapable]()
+    
+    for _ in 1...10 {
+      let heapable = MockHeapable(value: Int(arc4random_uniform(UInt32.max/2)))
+      
+      heapables.append(heapable)
+      heap.insert(heapable)
     }
     
-    override func tearDown() {
-        super.tearDown()
+    var heapSorted = [Int]()
+    
+    while heap.count > 0 {
+      heapSorted.append(heap.extract()!.value)
     }
     
-    /**
-     Test insert and extract
-     */
-    func testInsertAndExtract() {
-        let heapable = MockHeapable(value: 1)
-        heap.insert(heapable)
-        
-        XCTAssertEqual(heap.count, 1)
-        
-        heap.insert(MockHeapable(value: 100))
-        XCTAssertEqual(heap.count, 2)
-        
-        let extractedHeapable = heap.extract()!
-        XCTAssertTrue(extractedHeapable.value == heapable.value)
-        
-        XCTAssertEqual(heap.count, 1)
-    }
+    let systemSorted = heapables.map({$0.value}).sorted {$0 < $1}
     
-    /**
-     Test setting of heapIndex
-     */
-    func testHeapIndex() {
-        let heapable1 = MockHeapable(value: 10)
-        heap.insert(heapable1)
-        
-        XCTAssertEqual(heapable1.heapIndex!, 0)
-        
-        let heapable2 = MockHeapable(value: 0)
-        heap.insert(heapable2)
-        
-        XCTAssertEqual(heapable1.heapIndex!, 1)
-        XCTAssertEqual(heapable2.heapIndex!, 0)
-    }
-    
-    /**
-     Test heap functionality with heapsort
-     */
-    func testHeapSort() {
-        var heapables = [MockHeapable]()
-        
-        for _ in 1...10 {
-            let heapable = MockHeapable(value: Int(arc4random()))
-            
-            heapables.append(heapable)
-            heap.insert(heapable)
-        }
-        
-        var heapSorted = [Int]()
-
-        while heap.count > 0 {
-            heapSorted.append(heap.extract()!.value)
-        }
-        
-        let systemSorted = heapables.map({$0.value}).sorted {$0 < $1}
-        
-        XCTAssertEqual(systemSorted, heapSorted)
-    }
+    XCTAssertEqual(systemSorted, heapSorted)
+  }
 }
 
 class MockHeapable: Heapable {
-    var value: Int
-    var heapIndex: Int?
-    
-    init(value: Int) {
-        self.value = value
-    }
+  var value: Int
+  var heapIndex: Int?
+  
+  init(value: Int) {
+    self.value = value
+  }
 }
 

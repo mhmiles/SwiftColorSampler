@@ -23,6 +23,10 @@
 		0290DCF91D6CE33B009EBD9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0290DCF71D6CE33B009EBD9E /* LaunchScreen.storyboard */; };
 		0290DD0C1D6CE374009EBD9E /* TestImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 028959B71CF7A2D100414BCB /* TestImage2.jpg */; };
 		0290DD0D1D6CE493009EBD9E /* SwiftColorSampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028959731CF7A07B00414BCB /* SwiftColorSampler.framework */; };
+		02EDB60A1ED40298001105CB /* ColorOctree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0289598D1CF7A0A800414BCB /* ColorOctree.swift */; };
+		02EDB60B1ED40298001105CB /* MinBinaryHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0289598E1CF7A0A800414BCB /* MinBinaryHeap.swift */; };
+		02EDB60C1ED4029C001105CB /* UIImage+ColorSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0289598F1CF7A0A800414BCB /* UIImage+ColorSampler.swift */; };
+		02EDB60F1ED403D8001105CB /* SwiftColorSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 028959761CF7A07B00414BCB /* SwiftColorSampler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,6 @@
 /* Begin PBXFileReference section */
 		028959731CF7A07B00414BCB /* SwiftColorSampler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftColorSampler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		028959761CF7A07B00414BCB /* SwiftColorSampler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftColorSampler.h; sourceTree = "<group>"; };
-		028959781CF7A07B00414BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0289597D1CF7A07B00414BCB /* SwiftColorSamplerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftColorSamplerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		028959841CF7A07B00414BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0289598D1CF7A0A800414BCB /* ColorOctree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorOctree.swift; sourceTree = "<group>"; };
@@ -46,8 +49,8 @@
 		0289598F1CF7A0A800414BCB /* UIImage+ColorSampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorSampler.swift"; sourceTree = "<group>"; };
 		028959931CF7A0D700414BCB /* SwiftColorSamplerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColorSamplerTests.swift; sourceTree = "<group>"; };
 		028959951CF7A0DC00414BCB /* MinBinaryHeapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinBinaryHeapTests.swift; sourceTree = "<group>"; };
-		028959B61CF7A2D100414BCB /* TestImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TestImage1.png; path = "Tests/Test Images/TestImage1.png"; sourceTree = "<group>"; };
-		028959B71CF7A2D100414BCB /* TestImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = TestImage2.jpg; path = "Tests/Test Images/TestImage2.jpg"; sourceTree = "<group>"; };
+		028959B61CF7A2D100414BCB /* TestImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage1.png; sourceTree = "<group>"; };
+		028959B71CF7A2D100414BCB /* TestImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TestImage2.jpg; sourceTree = "<group>"; };
 		0290DCEC1D6CE33B009EBD9E /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0290DCEE1D6CE33B009EBD9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0290DCF01D6CE33B009EBD9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 		0290DCF51D6CE33B009EBD9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0290DCF81D6CE33B009EBD9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0290DCFA1D6CE33B009EBD9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02EDB6021ED4026D001105CB /* SwiftColorSampler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftColorSampler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		02EDB6051ED4026E001105CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +86,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02EDB5FE1ED4026D001105CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		028959691CF7A07B00414BCB = {
 			isa = PBXGroup;
 			children = (
-				0290DCED1D6CE33B009EBD9E /* Sample App */,
 				028959741CF7A07B00414BCB /* Products */,
+				0290DCED1D6CE33B009EBD9E /* Sample App */,
 				028959751CF7A07B00414BCB /* Source */,
 				028959811CF7A07B00414BCB /* Tests */,
 			);
@@ -100,6 +112,7 @@
 				028959731CF7A07B00414BCB /* SwiftColorSampler.framework */,
 				0289597D1CF7A07B00414BCB /* SwiftColorSamplerTests.xctest */,
 				0290DCEC1D6CE33B009EBD9E /* Sample App.app */,
+				02EDB6021ED4026D001105CB /* SwiftColorSampler.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				0289598D1CF7A0A800414BCB /* ColorOctree.swift */,
-				028959781CF7A07B00414BCB /* Info.plist */,
+				02EDB6051ED4026E001105CB /* Info.plist */,
 				0289598E1CF7A0A800414BCB /* MinBinaryHeap.swift */,
 				028959761CF7A07B00414BCB /* SwiftColorSampler.h */,
 				0289598F1CF7A0A800414BCB /* UIImage+ColorSampler.swift */,
@@ -119,10 +132,10 @@
 		028959811CF7A07B00414BCB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				028959BA1CF7A2F600414BCB /* Test Images */,
 				028959841CF7A07B00414BCB /* Info.plist */,
 				028959951CF7A0DC00414BCB /* MinBinaryHeapTests.swift */,
 				028959931CF7A0D700414BCB /* SwiftColorSamplerTests.swift */,
-				028959BA1CF7A2F600414BCB /* Test Images */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -133,19 +146,18 @@
 				028959B61CF7A2D100414BCB /* TestImage1.png */,
 				028959B71CF7A2D100414BCB /* TestImage2.jpg */,
 			);
-			name = "Test Images";
-			path = ..;
+			path = "Test Images";
 			sourceTree = "<group>";
 		};
 		0290DCED1D6CE33B009EBD9E /* Sample App */ = {
 			isa = PBXGroup;
 			children = (
 				0290DCEE1D6CE33B009EBD9E /* AppDelegate.swift */,
-				0290DCF01D6CE33B009EBD9E /* ViewController.swift */,
-				0290DCF21D6CE33B009EBD9E /* Main.storyboard */,
 				0290DCF51D6CE33B009EBD9E /* Assets.xcassets */,
-				0290DCF71D6CE33B009EBD9E /* LaunchScreen.storyboard */,
 				0290DCFA1D6CE33B009EBD9E /* Info.plist */,
+				0290DCF71D6CE33B009EBD9E /* LaunchScreen.storyboard */,
+				0290DCF21D6CE33B009EBD9E /* Main.storyboard */,
+				0290DCF01D6CE33B009EBD9E /* ViewController.swift */,
 			);
 			path = "Sample App";
 			sourceTree = "<group>";
@@ -161,12 +173,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02EDB5FF1ED4026D001105CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02EDB60F1ED403D8001105CB /* SwiftColorSampler.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		028959721CF7A07B00414BCB /* SwiftColorSampler */ = {
+		028959721CF7A07B00414BCB /* SwiftColorSampler iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 028959871CF7A07B00414BCB /* Build configuration list for PBXNativeTarget "SwiftColorSampler" */;
+			buildConfigurationList = 028959871CF7A07B00414BCB /* Build configuration list for PBXNativeTarget "SwiftColorSampler iOS" */;
 			buildPhases = (
 				0289596E1CF7A07B00414BCB /* Sources */,
 				0289596F1CF7A07B00414BCB /* Frameworks */,
@@ -177,7 +197,7 @@
 			);
 			dependencies = (
 			);
-			name = SwiftColorSampler;
+			name = "SwiftColorSampler iOS";
 			productName = SwiftColorSampler;
 			productReference = 028959731CF7A07B00414BCB /* SwiftColorSampler.framework */;
 			productType = "com.apple.product-type.framework";
@@ -217,6 +237,24 @@
 			productReference = 0290DCEC1D6CE33B009EBD9E /* Sample App.app */;
 			productType = "com.apple.product-type.application";
 		};
+		02EDB6011ED4026D001105CB /* SwiftColorSampler watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02EDB6071ED4026E001105CB /* Build configuration list for PBXNativeTarget "SwiftColorSampler watchOS" */;
+			buildPhases = (
+				02EDB5FD1ED4026D001105CB /* Sources */,
+				02EDB5FE1ED4026D001105CB /* Frameworks */,
+				02EDB5FF1ED4026D001105CB /* Headers */,
+				02EDB6001ED4026D001105CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftColorSampler watchOS";
+			productName = "SwiftColorSampler-watchOS";
+			productReference = 02EDB6021ED4026D001105CB /* SwiftColorSampler.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -240,6 +278,11 @@
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
 					};
+					02EDB6011ED4026D001105CB = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 7XLNECBC46;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 0289596D1CF7A07B00414BCB /* Build configuration list for PBXProject "SwiftColorSampler" */;
@@ -255,9 +298,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				028959721CF7A07B00414BCB /* SwiftColorSampler */,
+				028959721CF7A07B00414BCB /* SwiftColorSampler iOS */,
 				0289597C1CF7A07B00414BCB /* SwiftColorSamplerTests */,
 				0290DCEB1D6CE33B009EBD9E /* Sample App */,
+				02EDB6011ED4026D001105CB /* SwiftColorSampler watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -287,6 +331,13 @@
 				0290DCF61D6CE33B009EBD9E /* Assets.xcassets in Resources */,
 				0290DD0C1D6CE374009EBD9E /* TestImage2.jpg in Resources */,
 				0290DCF41D6CE33B009EBD9E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02EDB6001ED4026D001105CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,12 +372,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02EDB5FD1ED4026D001105CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02EDB60A1ED40298001105CB /* ColorOctree.swift in Sources */,
+				02EDB60C1ED4029C001105CB /* UIImage+ColorSampler.swift in Sources */,
+				02EDB60B1ED40298001105CB /* MinBinaryHeap.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		028959801CF7A07B00414BCB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 028959721CF7A07B00414BCB /* SwiftColorSampler */;
+			target = 028959721CF7A07B00414BCB /* SwiftColorSampler iOS */;
 			targetProxy = 0289597F1CF7A07B00414BCB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -338,6 +399,7 @@
 				0290DCF31D6CE33B009EBD9E /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		0290DCF71D6CE33B009EBD9E /* LaunchScreen.storyboard */ = {
@@ -346,6 +408,7 @@
 				0290DCF81D6CE33B009EBD9E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -462,7 +525,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hollylabs.SwiftColorSampler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftColorSampler;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -482,7 +545,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hollylabs.SwiftColorSampler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftColorSampler;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -543,6 +606,57 @@
 			};
 			name = Release;
 		};
+		02EDB6081ED4026E001105CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7XLNECBC46;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hollingsware.SwiftColorSampler-watchOS";
+				PRODUCT_NAME = SwiftColorSampler;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		02EDB6091ED4026E001105CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7XLNECBC46;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hollingsware.SwiftColorSampler-watchOS";
+				PRODUCT_NAME = SwiftColorSampler;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -555,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		028959871CF7A07B00414BCB /* Build configuration list for PBXNativeTarget "SwiftColorSampler" */ = {
+		028959871CF7A07B00414BCB /* Build configuration list for PBXNativeTarget "SwiftColorSampler iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				028959881CF7A07B00414BCB /* Debug */,
@@ -580,6 +694,16 @@
 				0290DD081D6CE33B009EBD9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02EDB6071ED4026E001105CB /* Build configuration list for PBXNativeTarget "SwiftColorSampler watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02EDB6081ED4026E001105CB /* Debug */,
+				02EDB6091ED4026E001105CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

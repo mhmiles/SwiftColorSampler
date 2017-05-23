@@ -10,24 +10,25 @@ import UIKit
 import SwiftColorSampler
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var view2: UIView!
-    @IBOutlet weak var view3: UIView!
-    @IBOutlet weak var view4: UIView!
-    @IBOutlet weak var view5: UIView!
+  
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var view1: UIView!
+  @IBOutlet weak var view2: UIView!
+  @IBOutlet weak var view3: UIView!
+  @IBOutlet weak var view4: UIView!
+  @IBOutlet weak var view5: UIView!
+  
+  @IBOutlet weak var stackView: UIStackView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    @IBOutlet weak var stackView: UIStackView!
+    let colors = try! imageView.image?.sampleColors(count: 5, colorDepth: 4, coverage: 0.1)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let colors = try! UIImage(named: "TestImage2.jpg")?.sampleColors(count: 5, colorDepth: 4)
-
-        for (index, view) in stackView.subviews.enumerated() {
-            view.backgroundColor = colors?[index]
-            view.layer.borderWidth = 1.0
-        }
+    for (index, view) in stackView.subviews.enumerated() {
+      view.backgroundColor = colors?[index]
+      view.layer.borderWidth = 1.0
     }
+  }
 }
 
