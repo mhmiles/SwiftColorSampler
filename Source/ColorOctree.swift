@@ -132,7 +132,7 @@ internal class ColorOctree {
           currentOctreeNode.fold()
           currentOctreeNode = parent
           
-          if (parentWasOccupied) {
+          if parentWasOccupied {
             break
           }
         } else {
@@ -140,7 +140,7 @@ internal class ColorOctree {
         }
       }
       
-      if (currentOctreeNode.weight > minOctreeNode.weight) {
+      if currentOctreeNode.weight > minOctreeNode.weight {
         heap.insert(currentOctreeNode)
       }
     }

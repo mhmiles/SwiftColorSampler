@@ -56,18 +56,20 @@ public extension UIImage {
         throw ColorSamplingError.InvalidCoverage
       }
       
-      var i = 0
+
       // Upperbound set so average is 1/coverage
       let upperBound = 2*UInt32(1/coverage)+1
       
-      while true {
-        i += Int(arc4random_uniform(upperBound))
-        
-        if i >= pixelColors.count {
-          break
-        }
-        
+      var i: Int
+      // Set i so we get at least 1 sample
+      repeat {
+        i = Int(arc4random_uniform(upperBound))
+      } while i >= pixelColors.count
+      
+      while i < pixelColors.count {
         octree.insertColor(pixelColors[i])
+        
+        i += Int(arc4random_uniform(upperBound))
       }
     }
     

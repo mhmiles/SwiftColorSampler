@@ -29,13 +29,7 @@ class MinBinaryHeapTests: XCTestCase {
   var heap: MinBinaryHeap<MockHeapable>!
   
   override func setUp() {
-    super.setUp()
-    
     heap = MinBinaryHeap<MockHeapable>()
-  }
-  
-  override func tearDown() {
-    super.tearDown()
   }
   
   /**

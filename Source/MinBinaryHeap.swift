@@ -71,7 +71,7 @@ internal class MinBinaryHeap<T: Heapable> {
       
       node.value = object.value
       
-      if (valueIncreased) {
+      if valueIncreased {
         downHeap(node)
       } else {
         upHeap(node)
@@ -169,7 +169,7 @@ internal class MinBinaryHeap<T: Heapable> {
   
   fileprivate func getParent(_ node: HeapNode<T>) -> HeapNode<T>? {
     let nodeIndex = node.heapIndex
-    if (nodeIndex == 0) {
+    if nodeIndex == 0 {
       return nil
     } else {
       return nodes[(nodeIndex-1)/2]
