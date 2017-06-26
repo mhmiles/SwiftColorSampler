@@ -100,7 +100,7 @@ class SwiftColorSamplerTests: XCTestCase {
    */
   func testThrowing() {
     do {
-      try testImage1.sampleColors(count: 0)
+      let _ = try testImage1.sampleColors(count: 0)
     } catch {
       XCTAssert(true)
       return
