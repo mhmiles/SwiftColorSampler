@@ -38,6 +38,12 @@ class SwiftColorSamplerTests: XCTestCase {
     return UIImage(contentsOfFile: imagePath)!
   }()
   
+  lazy var testImage3: UIImage = {
+    let bundle = Bundle(for: (SwiftColorSamplerTests.self))
+    let imagePath = bundle.path(forResource: "TestImage3", ofType: "png")!
+    return UIImage(contentsOfFile: imagePath)!
+  }()
+  
   let testImage1Colors = [
     UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0),
     UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0),
@@ -113,10 +119,10 @@ class SwiftColorSamplerTests: XCTestCase {
    Test sampling colors from a subregion of an image.
    */
   func testRectSampling() {
-    let firstColor = try! testImage1.sampleColors(count: 5, rect: CGRect(x: 0.0, y: 0.0, width: 5.0, height: 5.0))?.first!
+    let firstColor = try! testImage3.sampleColors(count: 5, rect: CGRect(x: 0.0, y: 0.0, width: 5.0, height: 5.0))?.first!
     XCTAssertEqual(firstColor, testImage1Colors.first!)
     
-    let lastColor = try! testImage1.sampleColors(count: 5, rect: CGRect(x: 95.0, y: 0.0, width: 5.0, height: 5.0))?.first!
+    let lastColor = try! testImage3.sampleColors(count: 5, rect: CGRect(x: 0.0, y: 95.0, width: 5.0, height: 5.0))?.first!
     XCTAssertEqual(lastColor, testImage1Colors.last!)
   }
   
@@ -130,10 +136,10 @@ class SwiftColorSamplerTests: XCTestCase {
   func testRealImage() {
     let colors = try! testImage2.sampleColors(count: 5)!
     
-    let compareColors: (UIColor, UIColor) -> Bool = {
+    let compareColors: (UIColor, UIColor) -> Bool = { (rhs, lhs) in
       var red1 = CGFloat(), blue1 = CGFloat(), green1 = CGFloat(), red2 = CGFloat(), blue2 = CGFloat(), green2 = CGFloat()
-      $0.0.getRed(&red1, green: &green1, blue: &blue1, alpha: nil)
-      $0.1.getRed(&red2, green: &green2, blue: &blue2, alpha: nil)
+      rhs.getRed(&red1, green: &green1, blue: &blue1, alpha: nil)
+      lhs.getRed(&red2, green: &green2, blue: &blue2, alpha: nil)
       
       return abs(red1-red2)<0.0001 && abs(green1-green2)<0.0001 && abs(blue1-blue2)<0.0001
     }

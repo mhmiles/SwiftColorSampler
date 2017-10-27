@@ -94,7 +94,8 @@ public extension UIImage {
     
     let bounds = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     if bounds.contains(rect) {
-      let croppedCgImage = cgImage.cropping(to: rect)
+      let scaledRect = rect.applying(CGAffineTransform(scaleX: scale, y: scale))
+      let croppedCgImage = cgImage.cropping(to: scaledRect)
       let croppedImage = UIImage(cgImage: croppedCgImage!)
       
       return try croppedImage.sampleColors(count: count, colorDepth: colorDepth, coverage: coverage)

@@ -23,6 +23,7 @@
 		0290DCF91D6CE33B009EBD9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0290DCF71D6CE33B009EBD9E /* LaunchScreen.storyboard */; };
 		0290DD0C1D6CE374009EBD9E /* TestImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 028959B71CF7A2D100414BCB /* TestImage2.jpg */; };
 		0290DD0D1D6CE493009EBD9E /* SwiftColorSampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028959731CF7A07B00414BCB /* SwiftColorSampler.framework */; };
+		02E309411FA3F2BE009CEDEE /* TestImage3.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E309401FA3F2BE009CEDEE /* TestImage3.png */; };
 		02EDB60A1ED40298001105CB /* ColorOctree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0289598D1CF7A0A800414BCB /* ColorOctree.swift */; };
 		02EDB60B1ED40298001105CB /* MinBinaryHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0289598E1CF7A0A800414BCB /* MinBinaryHeap.swift */; };
 		02EDB60C1ED4029C001105CB /* UIImage+ColorSampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0289598F1CF7A0A800414BCB /* UIImage+ColorSampler.swift */; };
@@ -58,6 +59,7 @@
 		0290DCF51D6CE33B009EBD9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0290DCF81D6CE33B009EBD9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0290DCFA1D6CE33B009EBD9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02E309401FA3F2BE009CEDEE /* TestImage3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage3.png; sourceTree = "<group>"; };
 		02EDB6021ED4026D001105CB /* SwiftColorSampler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftColorSampler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02EDB6051ED4026E001105CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 			children = (
 				028959B61CF7A2D100414BCB /* TestImage1.png */,
 				028959B71CF7A2D100414BCB /* TestImage2.jpg */,
+				02E309401FA3F2BE009CEDEE /* TestImage3.png */,
 			);
 			path = "Test Images";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			files = (
 				028959B81CF7A2D100414BCB /* TestImage1.png in Resources */,
 				028959B91CF7A2D100414BCB /* TestImage2.jpg in Resources */,
+				02E309411FA3F2BE009CEDEE /* TestImage3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
